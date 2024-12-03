@@ -1,0 +1,41 @@
+@media only screen and (max-device-width: 500px) {
+    #wrapper {
+        width: 100%;
+        height: 100vh;
+        background-color: var(--background);
+
+    }
+
+    #signUpContainer {
+        margin-left: 20px;
+        padding-top: 100px;
+    }
+
+    #signUpTextContainer>p:first-child,
+    #signUpTextContainer>p:last-child,
+    #userNameContainerSignIn>p {
+        color: white;
+        font-family: "Rethink Sans Regular";
+    }
+
+    #signUpTextContainer>p:first-child {
+        font-size: 32px;
+        font-weight: 400;
+        margin: 0;
+    }
+
+    #signUpTextContainer>p:last-child {
+        font-size: 14px;
+        font-weight: 500;
+        margin-top: 12px;
+    }
+
+    #logInLink {
+        text-decoration: underline;
+    }
+
+    #userNameContainerSignUp>p {
+        font-size: 14px;
+        font-weight: 500;
+    }
+}
