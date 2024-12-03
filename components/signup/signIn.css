@@ -60,6 +60,9 @@
 
     #passwordInputLogIn {
         margin-bottom: 50px;
+        background-image: url("../../icons/openEye.svg");
+        background-repeat: no-repeat;
+
     }
 
     #signInButton {
@@ -75,5 +78,17 @@
         border: none;
         margin: auto;
 
+    }
+
+    #passwordContainer {
+        position: relative;
+    }
+
+    #openEye {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        height: 20px;
+        width: 20px;
     }
 }

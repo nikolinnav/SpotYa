@@ -17,7 +17,10 @@ function renderSignIn(parent) {
         </div>
         <div id="passwordContainerLogin">
             <p>Password</p>
-            <input type="password" id="passwordInputLogIn">
+            <div id="passwordContainer">
+                <input type="password" id="passwordInputLogIn">
+                <img id="openEye" src="../../icons/openEye.svg">
+            </div>
         </div>
     </div>
     <button id="signInButton">Sign in</button>`
