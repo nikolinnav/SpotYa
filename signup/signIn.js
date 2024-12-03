@@ -11,16 +11,18 @@ function renderSignIn(parent) {
         <p>Don´t have an account? <span id = "createAccountLink"> Create an account here</span></p>
     </div>
     <div id="logInInputContainer">
-        <div id="userNameContainer">
+        <div id="userNameContainerLogin">
             <p>Username</p>
-            <input type="text" id="userNameInput">
+            <input type="text" id="userNameInputLogIn">
         </div>
-        <div id="passwordInputContainer">
+        <div id="passwordInputContainerLogIn">
             <p>Password</p>
-            <input type="password" id="passwordInput">
+            <input type="password" id="passwordInputLogIn">
         </div>
     </div>
-    <button>Sign in</button>
-        `
+    <button id="signInButton">Sign in</button>`
 
+    document.querySelector("#createAccountLink").addEventListener("click", () => {
+        renderSignUp(document.querySelector("#wrapper"));
+    })
 }
