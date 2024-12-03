@@ -5,3 +5,28 @@
     --orange: #F55004;
     --icons: #C7C7C7;
 }
+
+@font-face {
+    font-family: "Rethink Sans Regular";
+    src: url(font/RethinkSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Rethink Sans Italic";
+    src: url(font/RethinkSans-Italic.ttf);
+}
+
+@font-face {
+    font-family: "Rethink Sans Medium";
+    src: url(font/RethinkSans-Medium.ttf);
+}
+
+@font-face {
+    font-family: "Rethink Sans Bold";
+    src: url(font/RethinkSans-Bold.ttf);
+}
+
+@font-face {
+    font-family: "Rethink Sans SemiBold";
+    src: url(font/RethinkSans-SemiBold.ttf);
+}
