@@ -15,7 +15,7 @@ function renderSignIn(parent) {
             <p>Username</p>
             <input type="text" id="userNameInputLogIn">
         </div>
-        <div id=passwordContainerLogin">
+        <div id="passwordContainerLogin">
             <p>Password</p>
             <input type="password" id="passwordInputLogIn">
         </div>
