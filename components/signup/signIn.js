@@ -8,7 +8,7 @@ function renderSignIn(parent) {
     container.innerHTML = `
     <div id="logInTextContainer">
         <p>Welcome to SpotYa, <br>Sign in to continue</p>
-        <p>Don´t have an account? <span id = "createAccountLink"> Create an account here</span></p>
+        <p>Don't have an account? <span id = "createAccountLink"> Create an account here</span></p>
     </div>
     <div id="logInInputContainer">
         <div id="userNameContainerLogin">
