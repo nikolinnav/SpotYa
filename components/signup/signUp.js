@@ -73,3 +73,32 @@ function renderSignUp(parent) {
 
 }
 
+async function singUp (usernameInput, passwordInput){
+    try {
+        const response = await fetch("http://localhost:8888/register/", {
+            method:"POST",
+            headers: {
+
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({username: usernameInput, password: passwordInput})
+        });
+
+        if(response.ok) {
+            const data = await response.json();
+            alert(data.message);
+            localStorage.setItem('authKey', data.key);
+            window.location.href= '../gameList/gameList.html';
+        }else if (response.status === 409) {
+            const error = await response.json();
+            alert(error.error);
+        }else if (response.status === 400){
+            const error = await response.json();
+            alert(error.error);
+        }else{
+            alert('Internal server error, plase try again later');
+        }
+    }catch {
+        alert('An error occured. Please check your connection');
+    }
+}
