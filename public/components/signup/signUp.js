@@ -35,7 +35,9 @@ function renderSignUp(parent) {
                     <path d="M19.178 6.81016C19.1514 6.74922 18.5014 5.30781 17.0499 3.85625C15.703 2.51094 13.3889 0.90625 9.99989 0.90625C6.61082 0.90625 4.29676 2.51094 2.94989 3.85625C1.49832 5.30781 0.848323 6.74687 0.821761 6.81016C0.795052 6.87016 0.78125 6.9351 0.78125 7.00078C0.78125 7.06646 0.795052 7.1314 0.821761 7.19141C0.848323 7.25156 1.49832 8.69297 2.94989 10.1445C4.29676 11.4898 6.61082 13.0938 9.99989 13.0938C13.3889 13.0938 15.703 11.4898 17.0499 10.1445C18.5014 8.69297 19.1514 7.25391 19.178 7.19141C19.2047 7.1314 19.2185 7.06646 19.2185 7.00078C19.2185 6.9351 19.2047 6.87016 19.178 6.81016ZM9.99989 12.1562C7.54832 12.1562 5.4077 11.2641 3.6366 9.50547C2.89419 8.76759 2.26593 7.92315 1.77254 7C2.2658 6.077 2.89408 5.2328 3.6366 4.49531C5.4077 2.73594 7.54832 1.84375 9.99989 1.84375C12.4514 1.84375 14.5921 2.73594 16.3632 4.49531C17.1057 5.2328 17.734 6.077 18.2272 7C17.7296 7.95391 15.2343 12.1562 9.99989 12.1562ZM9.99989 3.40625C9.28911 3.40625 8.5943 3.61702 8.00331 4.01191C7.41232 4.40679 6.9517 4.96806 6.67969 5.62473C6.40769 6.2814 6.33652 7.00399 6.47519 7.70111C6.61385 8.39822 6.95613 9.03857 7.45872 9.54117C7.96132 10.0438 8.60166 10.386 9.29878 10.5247C9.9959 10.6634 10.7185 10.5922 11.3752 10.3202C12.0318 10.0482 12.5931 9.58757 12.988 8.99658C13.3829 8.40559 13.5936 7.71078 13.5936 7C13.5924 6.04726 13.2134 5.1339 12.5397 4.46021C11.866 3.78651 10.9526 3.40749 9.99989 3.40625ZM9.99989 9.65625C9.47453 9.65625 8.96097 9.50046 8.52415 9.20859C8.08733 8.91672 7.74688 8.50187 7.54583 8.0165C7.34479 7.53114 7.29218 6.99705 7.39468 6.48179C7.49717 5.96653 7.75015 5.49323 8.12163 5.12175C8.49312 4.75026 8.96642 4.49728 9.48168 4.39479C9.99694 4.2923 10.531 4.3449 11.0164 4.54595C11.5018 4.74699 11.9166 5.08745 12.2085 5.52427C12.5003 5.96108 12.6561 6.47464 12.6561 7C12.6561 7.70448 12.3763 8.38011 11.8781 8.87825C11.38 9.3764 10.7044 9.65625 9.99989 9.65625Z" fill="black"/>
                     </svg>
                 </span>
-                <p id="passwordValidation"></p>
+                <div id="validationContainer">
+                    <p id="passwordValidation"></p>
+                </div>
             </div>
         </div>
     </div>
@@ -72,14 +74,34 @@ function renderSignUp(parent) {
         });
     }
 
+    const confirmPasswordInput = document.getElementById("confirmPasswordInputSignUp");
+
+    confirmPasswordInput.addEventListener("keyup", () => {
+        const firstPassword = document.getElementById("passwordInputSignUp").value;
+        const secondPassword = document.getElementById("confirmPasswordInputSignUp").value;
+
+        validatePassword(firstPassword, secondPassword);
+
+        console.log(`first: ${firstPassword}, second:${secondPassword}`);
+
+    });
 
 
     const signUp = document.getElementById("signUpButton");
     signUp.addEventListener("click", async () => {
-        const username = document.getElementById("userNameInputSignUp");
+        const username = document.getElementById("userNameInputSignUp").value;
+        const firstPassword = document.getElementById("passwordInputSignUp").value;
+        const secondPassword = document.getElementById("confirmPasswordInputSignUp").value;
 
-        signUp(username, password);
-    })
+        const password = validatePassword(firstPassword, secondPassword);
+
+
+        if (password) {
+            await signUp(username, password);
+        } else {
+            alert('Password validation failed.');
+        }
+    });
 
 
 }
@@ -116,12 +138,23 @@ async function singUp(usernameInput, passwordInput) {
 
 function validatePassword(first, second) {
     const message = document.getElementById("passwordValidation");
+    const messageContainer = document.getElementById("validationContainer");
+    let password = null;
 
     if (first != second) {
         message.innerHTML = `Passwords do not match`;
-        message.color = "red";
+        message.style.color = "red";
+        messageContainer.style.backgroundColor = "rgba(255,0,0,0.3)";
+        console.log("Passwords do not match");
     } else if (first === second) {
         message.innerHTML = `Passwords match`;
-        message.color = "green"
+        message.style.color = "green"
+        messageContainer.style.backgroundColor = "rgba(0,128,0,0.3)";
+
+        password = second;
+
+        console.log("passwords match");
     }
+
+    return password;
 }
