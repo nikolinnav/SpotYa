@@ -1,0 +1,18 @@
+[
+  {
+    "username": "test",
+    "password": "$2a$10$8XWrk3jMT8D8u6gqKPS.QuKuVKp/Ves1/Jq/qLwLT4PNBGHTjoWXa",
+    "friendRequests": [],
+    "friends": [],
+    "games": [],
+    "profilePic": "default.png"
+  },
+  {
+    "username": "test2",
+    "password": "$2a$10$1.BiA4qTHEegOhuZOLcNze5OmT6cIKhnQ8RUXg974UGhiMeyYHjbu",
+    "friendRequests": [],
+    "friends": [],
+    "games": [],
+    "profilePic": "default.png"
+  }
+]
