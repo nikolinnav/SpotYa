@@ -78,7 +78,7 @@ async function signIn(usernameInput, passwordInput) {
             const data = await response.json();
             localStorage.setItem('authToken', data.token);
             localStorage.setItem('id', data.user.id);
-            window.location.href = '../../homepage/homepage.html';
+            window.location.href = '../gameList/gameList.html';
             return data;
         } else if (response.status === 401) {
             const error = await response.json();
