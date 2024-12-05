@@ -26,19 +26,27 @@ export class ServeHandler {
   }
 
   public async handleReq(req: Request): Promise<Response> {
+    console.log("HTTP Request made\n");
+    console.log(req);
     switch (req.method) {
       case "GET": {
-        if (req.headers.get("upgrade") === "websocket") {
+        if (
+          req.headers.get("connection") === "Upgrade" &&
+          req.headers.get("upgrade") === "websocket"
+        ) {
+          console.log("WS Request");
           return await this._handleWsReq(req);
         }
-
+        console.log("HTTP GET Request");
         return await this._handleHttpGet(req);
       }
 
       case "POST":
+        console.log("HTTP POST Request");
         return await this._handleHttpPost(req);
 
       default:
+        console.log("BAD REQUEST");
         return sendRes(400, { error: "Bad request" });
     }
   }
@@ -111,64 +119,104 @@ export class ServeHandler {
     }
   }
 
-  private async _handleWsReq(req: Request): Promise<Response> {
+  private _handleWsReq(req: Request): Response {
     const _url: URL = new URL(req.url);
     const _params: URLSearchParams = _url.searchParams;
     const _path: string = _url.pathname;
     if (_path !== "/socket") {
+      console.log("Endpoint not found");
       return sendRes(404, {
-        error: `Resource '${_path}' not found. WebSocket upgrade requests need to be made to /socket`,
+        error: `Endpoint '${_path}' not found. WebSocket upgrade requests need to be made to /socket`,
       });
     }
 
     if (!_params.has("key")) {
+      console.log("Missing key parameter");
       return sendRes(400, { error: "Missing key parameter" });
     }
 
     const _key = _params.get("key") as AuthKey;
     if (!this._sockets.has(_key)) {
+      console.log("Invalid authentication key");
       return sendRes(401, { error: "Invalid authentication key" });
     }
 
     const { socket, response }: { socket: WebSocket; response: Response } =
       Deno.upgradeWebSocket(req);
 
+    const _username = this._sockets.get(_key)!.username;
+
     this._sockets.set(_key, {
       socket,
-      username: this._sockets.get(_key)!.username,
+      username: _username,
     });
 
-    socket.addEventListener("open", () => {
-      console.log(
-        `Socket ${_key} - ${this._sockets.get(_key)!.username} opened.`
-      );
+    socket.addEventListener("open", (): void => {
+      console.log(`Socket ${_key} - ${_username} opened.`);
     });
 
-    socket.addEventListener("message", (e: MessageEvent) => {
+    socket.addEventListener("message", (e: MessageEvent): void => {
       try {
         const { event, data }: WebSocketMessage = JSON.parse(e.data);
         switch (event) {
+          case "cl:getUser": {
+            console.log(`Socket ${_key} - ${_username} requested user data.`);
+            socket.send(JSON.stringify({ event: "sv:user", data: null }));
+            break;
+          }
+
+          case "cl:getAllFriends": {
+            console.log(`Socket ${_key} - ${_username} requested all friends.`);
+            socket.send(JSON.stringify({ event: "sv:allFriends", data: null }));
+            break;
+          }
+
+          case "cl:getAllGames": {
+            console.log(`Socket ${_key} - ${_username} requested all games.`);
+            socket.send(JSON.stringify({ event: "sv:allGames", data: null }));
+            break;
+          }
+
+          case "cl:getFriend": {
+            console.log(`Socket ${_key} - ${_username} requested friend data.`);
+            socket.send(JSON.stringify({ event: "sv:friend", data: null }));
+            break;
+          }
+
+          case "cl:getGame": {
+            console.log(`Socket ${_key} - ${_username} requested game data.`);
+            socket.send(JSON.stringify({ event: "sv:game", data: null }));
+            break;
+          }
+
+          case "cl:addFriend": {
+            console.log(
+              `Socket ${_key} - ${_username} requested to add a friend.`
+            );
+            break;
+          }
+
+          case "cl:createGame": {
+            console.log(
+              `Socket ${_key} - ${_username} requested to create a game.`
+            );
+            break;
+          }
+
           default:
             break;
         }
-      } catch (error) {
-        socket.send(
-          JSON.stringify({
-            type: "messageError",
-            payload: "An error occurred while handling your request.",
-          })
-        );
-        console.error(`Error parsing message. ${String(error)}`);
-        console.error(e.data);
+      } catch (e) {
+        console.error(`Error parsing message:\n${e}`);
       }
     });
 
-    socket.addEventListener("close", () => {
-      `Socket ${_key} - ${this._sockets.get(_key)!.username} closed.`;
+    socket.addEventListener("close", (): void => {
+      `Socket ${_key} - ${_username} closed.`;
     });
 
-    socket.addEventListener("error", () => {
-      `Socket ${_key} - ${this._sockets.get(_key)!.username} errored.`;
+    socket.addEventListener("error", (): void => {
+      `Socket ${_key} - ${_username} errored.`;
     });
 
     return response;
