@@ -59,8 +59,8 @@ function renderSignIn(parent) {
     //Log in 
     const logIn = document.getElementById("signInButton");
     logIn.addEventListener("click", async () => {
-        const username = document.getElementById("userNameInputLogIn");
-        const password = document.getElementById("passwordInputLogIn");
+        const username = document.getElementById("userNameInputLogIn").value;
+        const password = document.getElementById("passwordInputLogIn").value;
         await signIn(username, password);
     });
 }
