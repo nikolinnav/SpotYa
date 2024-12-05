@@ -56,6 +56,41 @@ function renderSignIn(parent) {
         }
     });
 
+    //Log in 
+    const logIn = document.getElementById("signInButton");
+    logIn.addEventListener("click", async () => {
+        const username = document.getElementById("userNameInputLogIn");
+        const password = document.getElementById("passwordInputLogIn");
+        await signIn(username, password);
+    });
+}
 
-    
+async function signIn(usernameInput, passwordInput) {
+    try {
+        const response = await fetch("http://localhost:8888/login/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ username: usernameInput, password: passwordInput })
+        });
+        if (response.ok) {
+            const data = await response.json();
+            localStorage.setItem('authToken', data.token);
+            localStorage.setItem('id', data.user.id);
+            window.location.href = '../../homepage/homepage.html';
+            return data;
+        } else if (response.status === 401) {
+            const error = await response.json();
+            alert(`Error: ${error.error}`);
+
+        } else if (response.status === 400) {
+            const error = await response.json();
+            alert(`Error: ${error.error}`);
+        } else {
+            alert('Internal server error. Please try again later.');
+        }
+    } catch (error) {
+        alert('An error occured. Please check your connection.');
+    }
 }
