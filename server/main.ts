@@ -1,4 +1,4 @@
-import { ServeHandler } from "./serveHandler.ts";
+import { Server } from "./server.ts";
 
-const server = new ServeHandler();
-server.serve();
+const server = new Server();
+server.start();
