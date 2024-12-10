@@ -9,7 +9,7 @@
     #logInContainer {
         margin-left: 20px;
         margin-right: 20px;
-        padding-top: 100px;
+        padding-top: 70px;
     }
 
     #logInTextContainer>p:first-child,
@@ -34,6 +34,7 @@
 
     #createAccountLink {
         text-decoration: underline;
+        cursor: pointer;
     }
 
     #userNameContainerLogin>p {
@@ -43,15 +44,24 @@
 
     #userNameInputLogIn,
     #passwordInputLogIn {
-        width: 100%;
+        width: 95%;
         border-radius: 8px;
         border: 1px solid #A6A6A6;
         height: 39px;
         margin-bottom: 10px;
+        padding-left: 15px;
+
+    }
+
+    #userNameInputLogIn:focus,
+    #passwordInputLogIn:focus {
+        border: none;
+        outline: none;
+        box-shadow: none;
     }
 
     #logInInputContainer {
-        padding-top: 65px;
+        padding-top: 55px;
     }
 
     #userNameInputLogIn {
@@ -60,8 +70,9 @@
 
     #passwordInputLogIn {
         margin-bottom: 50px;
-        background-image: url("../../icons/openEye.svg");
-        background-repeat: no-repeat;
+
+        /* background-image: url("../../icons/openEye.svg");
+        background-repeat: no-repeat; */
 
     }
 
@@ -77,18 +88,17 @@
         color: white;
         border: none;
         margin: auto;
-
     }
 
     #passwordContainer {
         position: relative;
     }
 
-    #openEye {
+    .passwordToggleIcon {
         position: absolute;
+        top: 26%;
         right: 10px;
-        top: 50%;
-        height: 20px;
-        width: 20px;
+        transform: translateY(-50%);
+        cursor: pointer;
     }
 }
