@@ -1,0 +1,17 @@
+#first,
+#second {
+    color: white;
+    font-size: 32px;
+    font-family: "Rethink Sans Regular";
+    margin-left: 86px;
+}
+
+#letsGoButton {
+    height: 40px;
+    width: 124px;
+    margin: auto;
+    border-radius: 23px;
+    color: white;
+    background-color: var(--purple);
+    border: none;
+}
