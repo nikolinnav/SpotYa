@@ -1,0 +1,16 @@
+#headerContainer {
+    display: flex;
+    padding-top: 30px;
+}
+
+#name {
+    color: white;
+    margin-top: 0;
+    margin-left: 130px;
+    font-size: 20px;
+    font-family: "Rethink Sans Regular";
+}
+
+#back {
+    margin-left: 20px;
+}
