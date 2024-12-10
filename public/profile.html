@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="components/profile/profile.css">
+    <link rel="stylesheet" href="components/header/header.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <header id="header"></header>
+
+    <main id="profile" style="color: black; font-weight: bold;">
+
+        <div id="profileFriendList">
+            <h3>Friend requests</h3>
+            <div>
+                <div>
+                    "icon"
+                    userName
+                </div>
+                <div>
+                    "remove"
+                </div>
+                <div>
+                    "approve"
+                </div>
+            </div>
+        </div>
+        
+    </main>
+
+    <script src="components/header/header.js"></script>
+    <script src="components/profile/profile.js"></script>
+    <script>
+        renderHeader(document.querySelector("#header"));
+        renderProfile(document.querySelector("#profile"))
+    </script>
+</body>
+
+</html>
