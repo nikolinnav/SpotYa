@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="components/profile/profile.css">
+    <link rel="stylesheet" href="components/header/header.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <header id="header"></header>
+
+    <main id="profile">
+
+        <section id="pf-info"></section>
+        <section id="pf-friends"></section>
+
+
+        <section id="pf-friendrequests">
+            <div class="pf-title">Friend requests</div>
+            <div>
+                <div>
+                    "icon"
+                    userName
+                </div>
+                <div>
+                    "remove"
+                </div>
+                <div>
+                    "approve"
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <script src="components/header/header.js"></script>
+    <script src="components/profile/profile.js"></script>
+    <script>
+        renderHeader(document.querySelector("#header"));
+        // renderProfile(document.querySelector("#profile"))
+        const grid = renderProfileFriends(document.querySelector('#pf-friends'))
+        renderAvatar(grid, 'Lisa', '')
+        renderAvatar(grid, 'Kalle', '')
+        renderAvatar(grid, 'Linus', '')
+        renderAvatar(grid, 'Ulla', '')
+        renderAvatar(grid, 'Greta', '')
+    </script>
+</body>
+
+</html>
