@@ -1,4 +1,5 @@
 function renderRanking(parent) {
+    document.querySelector("#wrapper").innerHTML = "";
     renderHeader(document.querySelector("#wrapper"));
     const container = document.createElement("div");
     container.id = "rankingContainer";
@@ -18,6 +19,7 @@ function renderRanking(parent) {
     <div id="rankListContainer">
         <div class="listElement">
             <div class="listLeft">
+                <div class="upOrDown"></div>
                 <p class="place">1</p>
                 <div class="profilePhoto"></div>
                 <p class="listName">Name</p>

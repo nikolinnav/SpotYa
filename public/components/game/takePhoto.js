@@ -1,5 +1,5 @@
 function renderTakePhoto(parent) {
-
+    document.querySelector("#wrapper").innerHTML = "";
     renderHeader(document.querySelector("#wrapper"));
 
     const container = document.createElement("div");

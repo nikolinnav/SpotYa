@@ -1,0 +1,113 @@
+#podium {
+    display: flex;
+    width: 70%;
+    margin: auto;
+    align-items: flex-end;
+    margin-bottom: 23px;
+}
+
+#podium1 {
+    width: 91px;
+    height: 145px;
+    border-top-left-radius: 23px;
+    background-color: #5e2795;
+}
+
+.placePodium {
+    display: flex;
+    font-size: 24px;
+    font-family: "Rethink Sans Regular";
+    color: white;
+    justify-content: center;
+    padding-top: 25px;
+    padding-bottom: 6px;
+}
+
+.pointsPodium {
+    height: 22px;
+    background-color: #4a1e76;
+    color: white;
+    font-size: 12px;
+    font-family: "Rethink Sans Regular";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 6px 0 6px;
+    width: 60%;
+    margin: auto;
+    border-radius: 16px;
+}
+
+#podium2 {
+    height: 172px;
+    width: 110px;
+    background-color: #7d04f5;
+    border-radius: 23px 23px 0 0;
+}
+
+#podium3 {
+    height: 125px;
+    width: 91px;
+    background-color: #5402a5;
+    border-top-right-radius: 23px;
+}
+
+.profilePhoto {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-top: 89px;
+}
+
+#podium2User {
+    margin-left: 10px;
+}
+
+.username {
+    color: white;
+    font-size: 14px;
+    font-family: "Rethink Sans Regular";
+    text-align: center;
+    margin-top: 3px;
+}
+
+
+.rankListElement {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    justify-content: space-between;
+    margin-bottom: 22px;
+}
+
+.leftContainer {
+    display: flex;
+    font-size: 14px;
+    font-family: "Rethink Sans Regular";
+    color: white;
+    align-items: center;
+}
+
+.listProfilePhoto {
+    margin-left: 22px;
+    margin-right: 5px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.finishedPlace,
+.listUsername,
+.finishedPoints {
+    font-size: 14px;
+    font-family: "Rethink Sans Regular";
+    color: white;
+}
+
+#finishedRankList {
+    width: 90%;
+    display: flex;
+    margin: auto;
+
+}

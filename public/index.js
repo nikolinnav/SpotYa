@@ -9,4 +9,5 @@
 //renderConfirmPhoto(document.querySelector("#wrapper"));
 //renderPreviewPhoto(document.querySelector("#wrapper"));
 //renderGuessMap(document.querySelector("#wrapper"));
-renderRanking(document.querySelector("#wrapper"));
+//renderRanking(document.querySelector("#wrapper"));
+renderFinishedRanking(document.querySelector("#wrapper"));

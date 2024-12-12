@@ -39,11 +39,11 @@
     font-family: "Rethink Sans Regular";
     color: white;
     align-items: center;
-    gap: 16px;
 }
 
 .profilePhoto {
-
+    margin-left: 25px;
+    margin-right: 16px;
     height: 28px;
     width: 28px;
     border-radius: 50%;
@@ -52,8 +52,15 @@
 
 .listRight {
     display: flex;
-    gap: 68px;
+    gap: 60px;
     font-size: 14px;
     font-family: "Rethink Sans Regular";
     color: white;
+}
+
+.upOrDown {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 5px;
 }
