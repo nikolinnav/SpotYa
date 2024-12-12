@@ -7,4 +7,5 @@
 //renderInGameNav(document.querySelector("#wrapper"));
 //renderTakePhoto(document.querySelector("#wrapper"));
 //renderConfirmPhoto(document.querySelector("#wrapper"));
-renderPreviewPhoto(document.querySelector("#wrapper"));
+//renderPreviewPhoto(document.querySelector("#wrapper"));
+renderGuessMap(document.querySelector("#wrapper"));
