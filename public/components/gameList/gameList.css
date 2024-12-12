@@ -1,0 +1,136 @@
+/*Finished game card*/
+#finishedGameCard {
+    height: 84px;
+    width: 95%;
+    background-color: #242424;
+    border-radius: 25px;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+#gameName {
+    margin-top: 0;
+    padding-top: 20px;
+    color: white;
+    font-family: "Rethink Sans Regular";
+    font-size: 20px;
+    margin-left: 20px;
+    margin-bottom: 0;
+}
+
+#nameAndIcon {
+    display: flex;
+    width: 96%;
+    align-items: baseline;
+    gap: 57%;
+}
+
+#finishedGameStatus {
+    color: var(--purple);
+    font-size: 14px;
+    font-family: "Rethink Sans Regular";
+    margin: 5px 0px 0px 20px;
+
+}
+
+/*Active game gards*/
+#activeGameCard {
+    height: 149px;
+    width: 95%;
+    background-color: #242424;
+    border-radius: 25px;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+#gameNameActive {
+    margin-top: 0;
+    padding-top: 20px;
+    color: white;
+    font-family: "Rethink Sans Regular";
+    font-size: 20px;
+    margin-left: 20px;
+    margin-bottom: 0;
+}
+
+#time {
+    color: #BBBBBB;
+    font-size: 12px;
+    font-family: "Rethink Sans Regular";
+    margin-bottom: 0;
+}
+
+#peopleP,
+#roundsP {
+    color: white;
+    font-size: 12px;
+    font-family: "Rethink Sans Regular";
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#guessTag>p,
+#placeTag>p {
+    color: white;
+    font-size: 14px;
+    font-family: "Rethink Sans Regular";
+    padding: 8px 16px;
+    margin: 0;
+}
+
+#guessTag,
+#placeTag {
+    height: 26px;
+}
+
+#placeTag {
+    background-color: #484848;
+}
+
+#nameAndTime {
+    display: flex;
+    width: 96%;
+    align-items: baseline;
+    gap: 47%;
+    margin-bottom: 14px;
+}
+
+#roundsAndPeople {
+    display: flex;
+    gap: 19px;
+    margin-left: 20px;
+    margin-bottom: 25px;
+
+}
+
+#rounds,
+#people {
+    display: flex;
+    gap: 7px;
+    align-items: baseline;
+}
+
+#gameCardTags {
+    display: flex;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+#guessTag,
+#placeTag {
+    display: flex;
+    background-color: #484848;
+    border-radius: 18px;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Titles*/
+#titleFinished,
+#titleActive {
+    font-family: "Rethink Sans Regular";
+    font-size: 16px;
+    color: white;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}

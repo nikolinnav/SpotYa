@@ -1,12 +1,14 @@
-function renderPreGame(parent) {
+function renderGuessMap(parent) {
     document.querySelector("#wrapper").innerHTML = "";
     renderHeader(document.querySelector("#wrapper"));
+
     const container = document.createElement("div");
-    container.id = "preGameContainer";
+    container.id = "guessMapContainer";
     parent.appendChild(container);
 
     container.innerHTML = `
-    <p id="first">It's time to<br> SpotYa friends!</p>
-    <p id="second">Are you ready?</p>
-    <button id="letsGoButton">Let's go!</button>`
+    <div id="map"></div>
+    <button id="spotYaButton">SpotYa</button>
+    
+    `
 }
