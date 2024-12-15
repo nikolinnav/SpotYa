@@ -18,11 +18,14 @@
     <main id="profile">
 
         <section id="pf-info"></section>
+        
+       
+
         <section id="pf-friends"></section>
 
 
         <section id="pf-friendrequests">
-            <div class="pf-title">Friend requests</div>
+            <!-- <div class="pf-title">Friend requests</div>
             <div>
                 <div>
                     "icon"
@@ -34,7 +37,7 @@
                 <div>
                     "approve"
                 </div>
-            </div>
+            </div> -->
         </section>
         
     </main>
@@ -44,6 +47,8 @@
     <script>
         renderHeader(document.querySelector("#header"));
         // renderProfile(document.querySelector("#profile"))
+        const profileInfo = renderProfileInfo(document.querySelector('#pf-info'), 'Rudolf','Rudolf rödmule', '1008p', '')
+
         const grid = renderProfileFriends(document.querySelector('#pf-friends'))
         renderAvatar(grid, 'Lisa', '')
         renderAvatar(grid, 'Kalle', '')
