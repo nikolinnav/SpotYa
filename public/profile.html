@@ -18,9 +18,6 @@
     <main id="profile">
 
         <section id="pf-info"></section>
-        
-       
-
         <section id="pf-friends"></section>
 
 
@@ -47,7 +44,7 @@
     <script>
         renderHeader(document.querySelector("#header"));
         // renderProfile(document.querySelector("#profile"))
-        const profileInfo = renderProfileInfo(document.querySelector('#pf-info'), 'Rudolf','Rudolf rödmule', '1008p', '')
+        renderProfileInfo(document.querySelector('#pf-info'), 'Rudolf','Rudolf rödmule', '1008p', '')
 
         const grid = renderProfileFriends(document.querySelector('#pf-friends'))
         renderAvatar(grid, 'Lisa', '')
@@ -55,6 +52,8 @@
         renderAvatar(grid, 'Linus', '')
         renderAvatar(grid, 'Ulla', '')
         renderAvatar(grid, 'Greta', '')
+
+
     </script>
 </body>
 

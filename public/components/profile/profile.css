@@ -1,10 +1,11 @@
 body {
     background-color: black;
     color: white;
+    
 }
 
 #profile {
-
+    margin: 0 10px auto 10px;
 }
 
 #pf-info {
@@ -20,7 +21,9 @@ body {
 }
 
 .pf-title {
-    
+    font-family: "Rethink Sans Regular" ; 
+    /* ska ändra till semibold  */
+    margin-bottom: 20px;
 }
 
 /* generic avatar grid-layout */
@@ -36,11 +39,12 @@ body {
     text-align: center;
     flex-direction: column;
     position: relative;
+    padding-top: 10px;
 }
 
 .avatar > div {
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
     border-radius: 50%;
     background-color: #505050;
     display: flex;
@@ -54,12 +58,15 @@ body {
 
 .avatar > p {
     font-family: "Rethink Sans Regular";
+    font-size: 12px;
 }
 
 .avatar > a {
     position: absolute;
-    top: 5px;
+    top: -5px;
     right: 5px;
+    line-height: 10px;
+    padding: 5px;
 }
 
 a.avatar {
@@ -96,6 +103,7 @@ a.avatar {
 
 #pf-info > p {
     font-family: "Rethink Sans Regular";
+     /* ska ändra till semibold  */
     margin: 0;
     font-size: 24px;
     margin-bottom: 12px;
@@ -103,6 +111,13 @@ a.avatar {
 
 #pf-info p:nth-of-type(2) {
     font-family: "Rethink Sans Regular";
+    margin: 0;
+    font-size: 14px;
+}
+
+#pf-info #pillId p {
+    font-family: "Rethink Sans Regular";
+    /* ska ändra till semibold  */
     margin: 0;
     font-size: 14px;
 }
