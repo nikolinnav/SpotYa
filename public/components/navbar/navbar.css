@@ -1,0 +1,75 @@
+/*Game list navbar*/
+#navContainer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 116px;
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+#blur {
+    height: 116px;
+    width: 100%;
+    filter: blur(11px);
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    z-index: 0;
+}
+
+#addGameContainer {
+    width: 58px;
+    height: 58px;
+    background-color: var(--purple);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#notificationIcon,
+#addGameContainer,
+#profileIcon {
+    filter: none;
+    position: relative;
+    z-index: 1;
+}
+
+/* In game navbar */
+
+#InGameNavContainer {
+    height: 43px;
+    width: calc(100% - 110px);
+    margin-left: 55px;
+    margin-right: 55px;
+    border-radius: 27px;
+    border: 0.5px solid white;
+    display: flex;
+    gap: 26px;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 69px;
+}
+
+#mapIconContainer,
+#picIconContainer,
+#chatIconContainer,
+#rankIconContainer {
+    height: 38px;
+    width: 58px;
+    border-radius: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#mapIconContainer>svg,
+#picIconContainer>svg {
+    position: relative;
+    z-index: 2;
+}

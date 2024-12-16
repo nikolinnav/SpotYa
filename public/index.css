@@ -3,8 +3,12 @@ body {
     box-sizing: border-box;
 }
 
+#wrapper {
+    height: 100vh;
+}
+
 :root {
-    --background: #0A0A0A;
+    --background: black;
     --card-background: #242424;
     --purple: #7D04F5;
     --orange: #F55004;

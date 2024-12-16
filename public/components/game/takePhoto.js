@@ -1,12 +1,16 @@
-function renderPreGame(parent) {
+function renderTakePhoto(parent) {
     document.querySelector("#wrapper").innerHTML = "";
     renderHeader(document.querySelector("#wrapper"));
+
     const container = document.createElement("div");
-    container.id = "preGameContainer";
+    container.id = "takePhotoContainer";
     parent.appendChild(container);
 
+
     container.innerHTML = `
-    <p id="first">It's time to<br> SpotYa friends!</p>
-    <p id="second">Are you ready?</p>
-    <button id="letsGoButton">Let's go!</button>`
+    <div id="photo"> </div>
+    <div id="buttonContainer">
+        <button id="takePhotoButton"></button>
+    </div>
+    `
 }

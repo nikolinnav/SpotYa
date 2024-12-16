@@ -1,0 +1,28 @@
+#photo {
+    width: 90%;
+    height: 60vh;
+    background-color: white;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 42px;
+}
+
+#takePhotoButton {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: white;
+    border: none;
+}
+
+#buttonContainer {
+    width: 65px;
+    height: 65px;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 41px;
+}

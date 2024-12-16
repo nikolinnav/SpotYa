@@ -1,0 +1,64 @@
+#userContainer {
+    display: flex;
+    margin-left: 10px;
+    margin-top: 50px;
+    margin-bottom: 19px;
+    gap: 9px;
+    align-items: center;
+}
+
+#profilePhoto {
+    height: 21px;
+    width: 21px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+#userName {
+    font-size: 14px;
+    font-family: "Rethink Sans Regular";
+    color: white;
+}
+
+#previewPhoto {
+    width: 90%;
+    height: 65vh;
+    background-color: white;
+    border-radius: 10px;
+    margin: auto;
+    margin-bottom: 40px;
+}
+
+#countdownContainer {
+    display: flex;
+    gap: 3px;
+    width: 90%;
+    margin: auto;
+    align-items: center;
+}
+
+#numberCountdown {
+    height: 34px;
+    width: 34px;
+    border-radius: 50%;
+    background-color: #4b4b4b;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Rethink Sans Regular";
+    font-size: 15px;
+}
+
+#progressContainer {
+    height: 8px;
+    width: calc(100% - 34px);
+    background-color: #4b4b4b;
+    border-radius: 8px;
+}
+
+#progress {
+    height: 8px;
+    background-color: #9d9d9d;
+    border-radius: 8px;
+}
