@@ -1,41 +1,41 @@
 body {
-    margin: 0px;
-    box-sizing: border-box;
+  margin: 0px;
+  box-sizing: border-box;
 }
 
 #wrapper {
-    height: 100vh;
+  height: 100dvh;
 }
 
 :root {
-    --background: black;
-    --card-background: #242424;
-    --purple: #7D04F5;
-    --orange: #F55004;
-    --icons: #C7C7C7;
+  --background: black;
+  --card-background: #242424;
+  --purple: #7d04f5;
+  --orange: #f55004;
+  --icons: #c7c7c7;
 }
 
 @font-face {
-    font-family: "Rethink Sans Regular";
-    src: url(font/RethinkSans-Regular.ttf);
+  font-family: "Rethink Sans Regular";
+  src: url(font/RethinkSans-Regular.ttf);
 }
 
 @font-face {
-    font-family: "Rethink Sans Italic";
-    src: url(font/RethinkSans-Italic.ttf);
+  font-family: "Rethink Sans Italic";
+  src: url(font/RethinkSans-Italic.ttf);
 }
 
 @font-face {
-    font-family: "Rethink Sans Medium";
-    src: url(font/RethinkSans-Medium.ttf);
+  font-family: "Rethink Sans Medium";
+  src: url(font/RethinkSans-Medium.ttf);
 }
 
 @font-face {
-    font-family: "Rethink Sans Bold";
-    src: url(font/RethinkSans-Bold.ttf);
+  font-family: "Rethink Sans Bold";
+  src: url(font/RethinkSans-Bold.ttf);
 }
 
 @font-face {
-    font-family: "Rethink Sans SemiBold";
-    src: url(font/RethinkSans-SemiBold.ttf);
+  font-family: "Rethink Sans SemiBold";
+  src: url(font/RethinkSans-SemiBold.ttf);
 }
