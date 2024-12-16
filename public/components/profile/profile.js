@@ -1,5 +1,28 @@
 function renderProfile(parent) {
-    // parent.innerHTML = ``
+    parent.innerHTML = `<main id="profile">
+        <section id="pf-info"></section>
+        <section id="pf-friends"></section>
+        <section id="pf-friendrequests"></section>
+    </main>`
+
+    renderProfileInfo(document.querySelector('#pf-info'), 'Rudolf','Rudolf rödmule', '1008p', '')
+
+    const grid = renderProfileFriends(document.querySelector('#pf-friends'))
+
+    // TODO: Fetch users friends (hur med sockets???)
+    // const response = await fetch('localhost:8888/')
+    // if (!response.ok) {
+    //     // Något blev fel
+    //     return
+    // }
+    // const users = response.json()
+    
+    // TODO: Skapa loop med resultatet från fetch/sockets!
+    renderAvatar(grid, 'Lisa', '')
+    renderAvatar(grid, 'Kalle', '')
+    renderAvatar(grid, 'Linus', '')
+    renderAvatar(grid, 'Ulla', '')
+    renderAvatar(grid, 'Greta', '')
 }
 
 function renderProfileFriends(parent) {
