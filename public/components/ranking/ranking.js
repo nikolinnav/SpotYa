@@ -1,11 +1,12 @@
 function renderRanking(parent) {
-    document.querySelector("#wrapper").innerHTML = "";
-    renderHeader(document.querySelector("#wrapper"));
-    const container = document.createElement("div");
-    container.id = "rankingContainer";
-    parent.appendChild(container);
+  client.page = "ranking";
+  document.querySelector("#wrapper").innerHTML = "";
+  renderHeader(document.querySelector("#wrapper"));
+  const container = document.createElement("div");
+  container.id = "rankingContainer";
+  parent.appendChild(container);
 
-    container.innerHTML = `
+  container.innerHTML = `
     <div id="headerRanking">
         <div id="headerLeft">
             <p id="pos">Pos</p>
@@ -30,7 +31,7 @@ function renderRanking(parent) {
             </div>
         </div>
     </div>
-    `
+    `;
 
-    renderInGameNav(document.querySelector("#wrapper"));
+  renderInGameNav(document.querySelector("#wrapper"));
 }

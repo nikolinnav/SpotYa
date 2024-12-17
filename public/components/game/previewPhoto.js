@@ -1,12 +1,13 @@
 function renderPreviewPhoto(parent) {
-    document.querySelector("#wrapper").innerHTML = "";
-    renderHeader(document.querySelector("#wrapper"));
+  client.page = "previewphoto";
+  document.querySelector("#wrapper").innerHTML = "";
+  renderHeader(document.querySelector("#wrapper"));
 
-    const container = document.createElement("div");
-    container.id = "previewPhotoContainer";
-    parent.appendChild(container);
+  const container = document.createElement("div");
+  container.id = "previewPhotoContainer";
+  parent.appendChild(container);
 
-    container.innerHTML = `
+  container.innerHTML = `
     <div id="userContainer">
         <div id="profilePhoto"></div>
         <p id="userName">Name</p>
@@ -20,5 +21,5 @@ function renderPreviewPhoto(parent) {
         </div>
     </div>
     
-    `
+    `;
 }

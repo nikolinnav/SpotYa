@@ -1,4 +1,5 @@
 function renderGuessMap(parent) {
+  client.page = "guessmap";
   document.querySelector("#wrapper").innerHTML = "";
   renderHeader(document.querySelector("#wrapper"));
 

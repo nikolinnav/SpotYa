@@ -1,4 +1,5 @@
 function renderTakePhoto(parent) {
+  client.page = "takephoto";
   const prePhotoHTML = `<div id="photo">
     
     <video id="video-stream"></video>    

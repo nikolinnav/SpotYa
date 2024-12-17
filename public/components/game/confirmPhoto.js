@@ -1,12 +1,13 @@
 function renderConfirmPhoto(parent) {
-    document.querySelector("#wrapper").innerHTML = "";
-    renderHeader(document.querySelector("#wrapper"));
+  client.page = "confirmphoto";
+  document.querySelector("#wrapper").innerHTML = "";
+  renderHeader(document.querySelector("#wrapper"));
 
-    const container = document.createElement("div");
-    container.id = "confirmPhotoContainer";
-    parent.appendChild(container);
+  const container = document.createElement("div");
+  container.id = "confirmPhotoContainer";
+  parent.appendChild(container);
 
-    container.innerHTML = `
+  container.innerHTML = `
     <div id="finishedPhoto">
         <div id="retakePhotoButton">
             <svg id="cancelIcon" width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -17,5 +18,5 @@ function renderConfirmPhoto(parent) {
      </div>
     <button id="confirmPhotoButton">Done</button>
     
-    `
+    `;
 }

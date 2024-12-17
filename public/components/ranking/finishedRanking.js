@@ -1,12 +1,13 @@
 function renderFinishedRanking(parent) {
-    document.querySelector("#wrapper").innerHTML = "";
-    renderHeader(document.querySelector("#wrapper"));
+  client.page = "finishedranking";
+  document.querySelector("#wrapper").innerHTML = "";
+  renderHeader(document.querySelector("#wrapper"));
 
-    const container = document.createElement("div");
-    container.id = "finishedRankingContainer";
-    parent.appendChild(container);
+  const container = document.createElement("div");
+  container.id = "finishedRankingContainer";
+  parent.appendChild(container);
 
-    container.innerHTML = `
+  container.innerHTML = `
     <div id="podium"> 
         <div>
             <div>
@@ -52,5 +53,5 @@ function renderFinishedRanking(parent) {
         </div>
     </div>
 
-    `
+    `;
 }

@@ -1,24 +1,25 @@
 function renderGameList(parent) {
-    document.querySelector(parent).innerHTML = "";
+  client.page = "gamelist";
+  document.querySelector(parent).innerHTML = "";
 
-    const container = document.createElement("div");
-    container.id = "gameListContainer";
-    parent.appendChild(container);
+  const container = document.createElement("div");
+  container.id = "gameListContainer";
+  parent.appendChild(container);
 
-    container.innerHTML += `
+  container.innerHTML += `
     <p id="titleFinished">Recently finished games</p>
     <div id="finishedGamesCards"></div>
     <p id="titleActive">Active games</p>
     <div id="activeGameCards"></div>
-    `
+    `;
 }
 
 function renderFinishedGameCard(parent) {
-    const container = document.createElement("div");
-    container.id = "finishedGameCard";
-    parent.appendChild(container);
+  const container = document.createElement("div");
+  container.id = "finishedGameCard";
+  parent.appendChild(container);
 
-    container.innerHTML = `
+  container.innerHTML = `
     <div id="nameAndIcon">
         <p id="gameName">GameName</p>
         <svg id="trashBin" width="14" height="16" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -26,15 +27,15 @@ function renderFinishedGameCard(parent) {
         </svg>
     </div>
     <p id="finishedGameStatus">Congratulations! You finished 3rd.</p>
-`
+`;
 }
 
 function renderActiveGameCard(parent) {
-    const container = document.createElement("div");
-    container.id = "activeGameCard";
-    parent.appendChild(container);
+  const container = document.createElement("div");
+  container.id = "activeGameCard";
+  parent.appendChild(container);
 
-    container.innerHTML = `
+  container.innerHTML = `
     <div id="nameAndTime">
         <p id="gameNameActive">Game name</p>
         <p id="time"> 12:30 left</p>
@@ -61,5 +62,5 @@ function renderActiveGameCard(parent) {
         <p>3rd place right now!</p>
     </div>
     </div>
-    `
+    `;
 }
