@@ -37,6 +37,26 @@ function renderProfileFriends(parent) {
     grid.className = 'avatar-grid'
     parent.appendChild(grid)
 
+
+    const containerViewMore = document.createElement('div')
+    containerViewMore.className = `containerViewMore`
+    const viewMore = document.createElement('div')
+    viewMore.className = 'viewMoreButton'
+    viewMore.addEventListener('click', (ev) => {
+        console.log(`show all friends`)
+        // vid cancelIdleCallback, expandera och visa alla vänner
+    })
+
+    const text = document.createElement('p')
+    text.innerHTML = `View more <svg width="7" height="7" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+       <path d="M3 4H0V3H3V0H4V3H7V4H4V7H3V4Z" fill="white"/>
+      </svg>`
+   
+    viewMore.appendChild(text)
+    containerViewMore.appendChild(viewMore)
+    parent.appendChild(containerViewMore)
+
+
     return grid
   
     // parent.innerHTML = `
@@ -144,5 +164,5 @@ function renderProfileInfo (parent, nickname, name, score,  imgSrc) {
     })
 
     container.appendChild(a)
-
 }
+
