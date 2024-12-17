@@ -43,3 +43,65 @@ body {
     right: 18px; /* Placera reset-knappen längst till höger */
 }
 
+#showPlayersList {
+    margin-top: 30px;
+}
+
+.AllAvatarContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: "Rethink Sans Regular";
+    font-size: 12px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+
+.AllAvatarContainer > div {
+    display: flex;
+    flex-direction: row;
+}
+
+.AllAvatarContainer > div:nth-of-type(1) > div {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #505050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.answerContainer {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.add {
+    background-color: #7D04F5;
+    height: 25px;
+    width: 51px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.CancelRequest {
+    background-color: #505050;
+    height: 25px;
+    width: 101px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+

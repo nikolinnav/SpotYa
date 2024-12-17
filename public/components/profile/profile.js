@@ -9,15 +9,8 @@ function renderProfile(parent) {
 
     const grid = renderProfileFriends(document.querySelector('#pf-friends'))
 
-    // TODO: Fetch users friends (hur med sockets???)
-    // const response = await fetch('localhost:8888/')
-    // if (!response.ok) {
-    //     // Något blev fel
-    //     return
-    // }
-    // const users = response.json()
-    
-    // TODO: Skapa loop med resultatet från fetch/sockets!
+    // TODO: Fetch users friends 
+    // TODO: Skapa loop med resultatet från fetch!
     renderAvatar(grid, 'Lisa', '')
     renderAvatar(grid, 'Kalle', '')
     renderAvatar(grid, 'Linus', '')
@@ -87,7 +80,6 @@ function renderProfileFriends(parent) {
     grid.className = 'avatar-grid'
     parent.appendChild(grid)
 
-
     const containerViewMore = document.createElement('div')
     containerViewMore.className = `containerViewMore`
     const viewMore = document.createElement('div')
@@ -108,16 +100,11 @@ function renderProfileFriends(parent) {
 
     return grid
   
-    // parent.innerHTML = `
-    //     <div class="pf-title">Friends</div>   
-    //     <div class="avatar-grid">
-    //     </div>
-    // `
 }
 
 
 
-function renderAvatar(parent, nickname, imgSrc) {
+function renderAvatar(parent, name, imgSrc) {
     const container = document.createElement('div')
     container.className = 'avatar'
 
@@ -127,7 +114,7 @@ function renderAvatar(parent, nickname, imgSrc) {
     div.appendChild(img)
 
     const p = document.createElement('p')
-    p.appendChild(document.createTextNode(nickname))
+    p.appendChild(document.createTextNode(name))
 
     const a = document.createElement('a')
     a.innerHTML = `<svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -137,7 +124,7 @@ function renderAvatar(parent, nickname, imgSrc) {
     a.addEventListener('click', (ev) => {
         ev.preventDefault()
         ev.stopPropagation()
-        console.log(`ta bort ${nickname}`)
+        console.log(`ta bort ${name}`)
         // implement delete friend here
     })
 
@@ -175,9 +162,6 @@ function addFriendsButton(parent) {
 
 
 
-
-
-
 function renderFriendRequests(parent) {
     const title = document.createElement('div')
     title.className = 'pf-title'
@@ -185,7 +169,7 @@ function renderFriendRequests(parent) {
     parent.appendChild(title)
 }
 
-function renderRequestsAvatars(parent, nickname, imgSrc) {
+function renderRequestsAvatars(parent, name, imgSrc) {
     const containerBig = document.createElement('div')
     containerBig.className = 'requestAvatarContainer'
 
@@ -197,7 +181,7 @@ function renderRequestsAvatars(parent, nickname, imgSrc) {
     div.appendChild(img)
 
     const p = document.createElement('p')
-    p.appendChild(document.createTextNode(nickname))
+    p.appendChild(document.createTextNode(name))
 
 
     const containerR = document.createElement('div')

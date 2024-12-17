@@ -7,6 +7,7 @@ function renderSearchPlayers(parent) {
     `
 
     searchFieldPlayers(document.querySelector('#searchPlayers'))
+    renderAllAvatars(document.querySelector('#showPlayersList'), 'name', '') 
 }
 
 
@@ -50,9 +51,57 @@ function searchFieldPlayers(parent) {
         inputEl.focus();
     })
 
-
     parent.appendChild(searchIcon)
     mainEl.appendChild(inputEl)
     parent.appendChild(mainEl)
     parent.appendChild(resetInputField)
 }
+
+
+function renderAllAvatars(parent, name, imgSrc) {
+    const containerBig = document.createElement('div')
+    containerBig.className = 'AllAvatarContainer'
+
+    const containerL = document.createElement('div')
+
+    const div = document.createElement('div')
+    const img = document.createElement('img')
+    img.setAttribute('src', imgSrc)
+    div.appendChild(img)
+
+    const p = document.createElement('p')
+    p.appendChild(document.createTextNode(name))
+
+
+    const containerR = document.createElement('div')
+    containerR.className = 'answerContainer'
+   
+  
+    const add = document.createElement('div')
+    add.textContent ='Add'
+    add.className = 'add'
+
+    add.addEventListener('click', (ev) => {
+        if (add.textContent === 'Add') {
+            add.textContent = 'Cancel request'; 
+            add.className = 'CancelRequest'; 
+            console.log('sent friend request')
+            //Add friend -> send friendrequest :)
+        } else {
+            add.textContent = 'Add'; 
+            add.className = 'add'; 
+            console.log('friend request cancelled')
+            // remove friendrequest :)
+        }
+    })
+
+    containerL.appendChild(div)
+    containerL.appendChild(p)
+    containerBig.appendChild(containerL)
+    parent.appendChild(containerBig)
+
+    containerR.appendChild(add)
+    containerBig.appendChild(containerR)
+}
+
+
