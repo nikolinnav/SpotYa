@@ -22,3 +22,53 @@
     margin: auto;
     margin-top: 42px;
 }
+
+#buyTime {
+    width: 90%;
+    height: 50px;
+    background-color: #242424;
+    border-radius: 37px;
+    display: flex;
+    margin: auto;
+    margin-top: 35px;
+    align-items: center;
+    position: relative;
+}
+
+#lightBulb {
+    width: 39px;
+    height: 39px;
+    background-color: black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 7px;
+}
+
+#text {
+    display: flex;
+    gap: 3px;
+    flex-direction: column;
+    font-family: "Rethink Sans Regular";
+    margin-left: 17px;
+}
+
+#buySec {
+    color: white;
+    font-size: 14px;
+    margin: 0;
+}
+
+#minusPoints {
+    color: #b6b6b6;
+    font-size: 12px;
+    margin: 0;
+}
+
+#arrowIcon {
+    position: absolute;
+    top: 17px;
+    right: 15px;
+
+}

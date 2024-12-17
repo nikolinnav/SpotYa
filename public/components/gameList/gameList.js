@@ -27,6 +27,12 @@ function renderFinishedGameCard(parent) {
     </div>
     <p id="finishedGameStatus">Congratulations! You finished 3rd.</p>
 `
+
+    const finishedGameCard = document.querySelector("#gameName");
+    finishedGameCard.addEventListener("click", function () {
+        renderFinishedRanking(document.querySelector("#wrapper"));
+    });
+
 }
 
 function renderActiveGameCard(parent) {
@@ -62,4 +68,7 @@ function renderActiveGameCard(parent) {
     </div>
     </div>
     `
+
+    
+
 }
