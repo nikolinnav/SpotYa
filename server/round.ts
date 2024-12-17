@@ -1,4 +1,5 @@
 import { Username, Coordinates } from "./types/shared.ts";
+import { haversine } from "./helpers.ts";
 
 export class Round {
   public readonly guessers: Array<{
@@ -11,27 +12,6 @@ export class Round {
     photo: string;
   };
 
-  get winner(): Username {
-    // TODO calculate winner
-    return "hello :)";
-  }
-
-  get scores(): { username: Username; score: number }[] {
-    // TODO calculate scores
-    const scores: { username: Username; score: number }[] = [];
-    this.guessers.forEach((guesser) => {
-      scores.push({
-        username: guesser.username,
-        score: this.score(guesser.username),
-      });
-    });
-    return scores.sort((a, b) => b.score - a.score);
-  }
-  score(username: Username): number {
-    // TODO calculate score
-    return 0;
-  }
-
   constructor(guessers: Username[], hider: Username) {
     this.guessers = guessers.map((guesser) => ({
       username: guesser,
@@ -43,6 +23,31 @@ export class Round {
       photo: "",
       coordinates: { latitude: null, longitude: null },
     };
+  }
+
+  get winner(): { username: Username; score: number } {
+    if (!this.finished) throw new Error("Game is not yet finished.");
+    return this.scores[0];
+  }
+
+  get scores(): { username: Username; score: number }[] {
+    if (!this.finished) throw new Error("Game is not yet finished.");
+    return this.guessers
+      .map((guesser) => ({
+        username: guesser.username,
+        score: this._score(guesser.username),
+      }))
+      .sort((a, b) => a.score - b.score);
+  }
+
+  private _score(username: Username): number {
+    const guesser = this.guessers.find(
+      (guesser) => guesser.username === username
+    );
+    if (guesser) {
+      return haversine(this.hider.coordinates, guesser.coordinates);
+    }
+    return Infinity;
   }
 
   get finished(): boolean {

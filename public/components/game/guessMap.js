@@ -95,6 +95,16 @@ function renderGuessMap(parent) {
     },
     opt
   );
+
+  document
+    .querySelector("#spotYaButton")
+    .addEventListener("click", function () {
+      renderRanking(document.querySelector("#wrapper"));
+    });
+
+  document.querySelector("#buyTime").addEventListener("click", function () {
+    renderPreviewPhoto(document.querySelector("#wrapper"));
+  });
 }
 
 async function fetchAreaName(lat, lng) {
@@ -107,11 +117,3 @@ async function fetchAreaName(lat, lng) {
     "Unknown location"
   );
 }
-
-document.querySelector("#spotYaButton").addEventListener("click", function () {
-  renderRanking(document.querySelector("#wrapper"));
-});
-
-document.querySelector("#buyTime").addEventListener("click", function () {
-  renderPreviewPhoto(document.querySelector("#wrapper"));
-});

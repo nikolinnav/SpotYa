@@ -1,9 +1,10 @@
 function renderGameListNav(parent) {
-    const navContainer = document.createElement("div");
-    navContainer.id = "navContainer";
-    parent.appendChild(navContainer);
+  const navContainer = document.createElement("div");
+  const parentDom = document.querySelector(parent);
+  navContainer.id = "navContainer";
+  parentDom.appendChild(navContainer);
 
-    navContainer.innerHTML = `
+  navContainer.innerHTML = `
     <div id="blur"></div>
     <svg id="notificationIcon" width="22" height="25" viewBox="0 0 22 25" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M4.33734 6.66084C4.49983 5.02331 5.26529 3.50467 6.48498 2.40002C7.70467 1.29536 9.29147 0.683594 10.937 0.683594C12.5826 0.683594 14.1694 1.29536 15.3891 2.40002C16.6088 3.50467 17.3743 5.02331 17.5368 6.66084L17.8801 10.1011C17.9017 10.3112 17.9113 10.4156 17.9245 10.5189C18.0974 11.9391 18.5854 13.3027 19.3529 14.5101L19.5834 14.8595L20.6169 16.4104C21.5616 17.8268 22.0334 18.5338 21.8269 19.104C21.7869 19.2128 21.7329 19.3137 21.6649 19.4065C21.3048 19.8951 20.4537 19.8951 18.7527 19.8951H3.12135C1.42041 19.8951 0.56934 19.8951 0.209225 19.4065C0.141421 19.3139 0.0872519 19.212 0.048374 19.104C-0.159292 18.5338 0.312458 17.8256 1.25596 16.4104L2.29069 14.8595L2.52116 14.5101C3.28869 13.3027 3.77673 11.9391 3.94962 10.5189C3.96162 10.4156 3.97363 10.3112 3.99403 10.1011L4.33734 6.66084Z" fill="#B4B4B4"/>
@@ -21,15 +22,22 @@ function renderGameListNav(parent) {
     <path fill-rule="evenodd" clip-rule="evenodd" d="M6.94444 5.55556C6.94444 4.08213 7.52976 2.66905 8.57163 1.62718C9.6135 0.585316 11.0266 0 12.5 0C13.9734 0 15.3865 0.585316 16.4284 1.62718C17.4702 2.66905 18.0556 4.08213 18.0556 5.55556C18.0556 7.02898 17.4702 8.44206 16.4284 9.48393C15.3865 10.5258 13.9734 11.1111 12.5 11.1111C11.0266 11.1111 9.6135 10.5258 8.57163 9.48393C7.52976 8.44206 6.94444 7.02898 6.94444 5.55556ZM6.94444 13.8889C5.10266 13.8889 3.33632 14.6205 2.03398 15.9229C0.731645 17.2252 0 18.9916 0 20.8333C0 21.9384 0.438987 22.9982 1.22039 23.7796C2.00179 24.561 3.0616 25 4.16667 25H20.8333C21.9384 25 22.9982 24.561 23.7796 23.7796C24.561 22.9982 25 21.9384 25 20.8333C25 18.9916 24.2684 17.2252 22.966 15.9229C21.6637 14.6205 19.8973 13.8889 18.0556 13.8889H6.94444Z" fill="#C7C7C7"/>
     </svg>
 
-    `
+    `;
+
+  const addGameBtn = document.getElementById("addGameContainer");
+  addGameBtn.addEventListener("click", () => {
+    client.socket.send(
+      JSON.stringify({ event: "cl:createGame", data: { users: ["test2"] } })
+    );
+  });
 }
 
 function renderInGameNav(parent) {
-    const navContainer = document.createElement("div");
-    navContainer.id = "InGameNavContainer";
-    parent.appendChild(navContainer);
+  const navContainer = document.createElement("div");
+  navContainer.id = "InGameNavContainer";
+  parent.appendChild(navContainer);
 
-    navContainer.innerHTML = `
+  navContainer.innerHTML = `
     <div id="mapIconContainer">
         <svg width="25" height="25" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M7.16518 18.0781L6.9913 18.0172L6.8195 18.0837L1.3945 20.1837L1.39449 20.1837L1.3893 20.1858C1.15655 20.2789 0.979488 20.2541 0.791722 20.1163C0.589126 19.9676 0.5 19.7912 0.5 19.5417V3.20833C0.5 3.05943 0.540554 2.94226 0.618949 2.83801C0.701462 2.72829 0.818052 2.63695 0.987956 2.56988L6.99755 0.528882L13.8348 2.92193L14.0087 2.98279L14.1805 2.91628L19.6055 0.816284L19.6055 0.816313L19.6107 0.814238C19.843 0.721324 20.0198 0.746057 20.2077 0.884433C20.4114 1.03446 20.5 1.21106 20.5 1.45833V17.7917C20.5 17.9412 20.4594 18.0587 20.3814 18.163C20.3003 18.2715 20.1842 18.3627 20.0126 18.4299L14.0025 20.4711L7.16518 18.0781ZM12.6682 18.6136L13.3333 18.8464V18.1417V4.49167V4.13693L12.9985 4.01974L8.33184 2.3864L7.66667 2.15359V2.85833V16.5083V16.8631L8.00149 16.9803L12.6682 18.6136ZM14.6667 18.1417V18.8354L15.3248 18.616L18.8248 17.4493L19.1667 17.3354V16.975V3.15V2.42286L18.4877 2.68313L14.9877 4.02479L14.6667 4.14786V4.49167V18.1417ZM1.83333 17.85V18.5771L2.5123 18.3169L6.0123 16.9752L6.33333 16.8521V16.5083V2.85833V2.16462L5.67522 2.38399L2.17522 3.55066L1.83333 3.66462V4.025V17.85Z" fill="white" stroke="#FCFCFC"/>
@@ -56,53 +64,59 @@ function renderInGameNav(parent) {
         </svg>
     </div>
 
-    `
+    `;
 
-    const mapIconContainer = document.querySelector("#mapIconContainer");
-    const picIconContainer = document.querySelector("#picIconContainer");
-    const chatIconContainer = document.querySelector("#chatIconContainer");
-    const rankIconContainer = document.querySelector("#rankIconContainer");
+  const mapIconContainer = document.querySelector("#mapIconContainer");
+  const picIconContainer = document.querySelector("#picIconContainer");
+  const chatIconContainer = document.querySelector("#chatIconContainer");
+  const rankIconContainer = document.querySelector("#rankIconContainer");
 
-    const navEvent = [mapIconContainer, picIconContainer, chatIconContainer, rankIconContainer]
+  const navEvent = [
+    mapIconContainer,
+    picIconContainer,
+    chatIconContainer,
+    rankIconContainer,
+  ];
 
-    function resetBackgrounds() {
-        navEvent.forEach(element => {
-            element.style.backgroundColor = "";
-            const icon = element.querySelector("svg");
-            if (icon) {
-                icon.style.fill = "";
-                //icon.setAttribute("stroke", "");
-            }
-        });
-    }
+  function resetBackgrounds() {
+    navEvent.forEach((element) => {
+      element.style.backgroundColor = "";
+      const icon = element.querySelector("svg");
+      if (icon) {
+        icon.style.fill = "";
+        //icon.setAttribute("stroke", "");
+      }
+    });
+  }
 
+  navEvent.forEach((element) => {
+    element.addEventListener("click", function () {
+      resetBackgrounds();
+      element.style.backgroundColor = "white";
+      //const icon = event.target.querySelector("")
+      const icon = element.querySelector("svg");
+      if (icon) {
+        icon.style.fill = "purple";
+        //icon.setAttribute("stroke", "purple");
+      }
+    });
+  });
 
-
-    navEvent.forEach(element => {
-        element.addEventListener("click", function () {
-            resetBackgrounds();
-            element.style.backgroundColor = "white";
-            //const icon = event.target.querySelector("")
-            const icon = element.querySelector("svg");
-            if (icon) {
-                icon.style.fill = "purple";
-                //icon.setAttribute("stroke", "purple");
-            }
-
-        })
-    })
-
-    document.querySelector("#rankIconContainer").addEventListener("click", function(){
-        renderRanking(document.querySelector("#wrapper"));
+  document
+    .querySelector("#rankIconContainer")
+    .addEventListener("click", function () {
+      renderRanking(document.querySelector("#wrapper"));
     });
 
-    document.querySelector("#picIconContainer").addEventListener("click", function(){
-       // renderRanking(document.querySelector("#wrapper"));
+  document
+    .querySelector("#picIconContainer")
+    .addEventListener("click", function () {
+      // renderRanking(document.querySelector("#wrapper"));
     });
 
-    document.querySelector("#mapIconContainer").addEventListener("click", function(){
-        renderShowMapAgain(document.querySelector("#wrapper"));
+  document
+    .querySelector("#mapIconContainer")
+    .addEventListener("click", function () {
+      renderShowMapAgain(document.querySelector("#wrapper"));
     });
-
-
-}   
+}

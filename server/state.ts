@@ -1,4 +1,5 @@
 import { Username, GameID } from "./types/shared.ts";
+import { GameInstance } from "./gameInstance.ts";
 
 export class State {
   constructor(
@@ -10,11 +11,16 @@ export class State {
     private readonly _friendRequests: {
       sender: Username;
       receiver: Username;
-    }[] = []
+    }[] = [],
+    private readonly _activeGames: GameInstance[] = []
   ) {}
 
-  public createGameInvitation(id: GameID, invitations: Username[]): void {
-    this._gameInvitations.push({ id, invitations, accepted: [] });
+  public createGameInvitation(
+    id: GameID,
+    invitations: Username[],
+    creator: Username
+  ): void {
+    this._gameInvitations.push({ id, invitations, accepted: [creator] });
   }
   public handleGameInvitation(
     id: GameID,
@@ -32,6 +38,11 @@ export class State {
     }
 
     _game.invitations.splice(idx, 1);
+    if (_game.invitations.length === 0) {
+      this._gameInvitations.splice(this._gameInvitations.indexOf(_game), 1); // TODO needed?
+      this._activeGames.push(new GameInstance(_game.accepted, id));
+      return true;
+    }
     return _game.invitations.length === 0;
   }
 
@@ -54,5 +65,15 @@ export class State {
 
     this._friendRequests.splice(idx, 1);
     return true;
+  }
+
+  public getGameInstance(id: GameID): GameInstance | null {
+    return this._activeGames.find((game) => game.id === id) || null;
+  }
+
+  // TODO I don't think this function is needed
+  private _createGameInstance(id: GameID, players: Username[]) {
+    const gameInstance = new GameInstance(players, id);
+    this._activeGames.push(gameInstance);
   }
 }

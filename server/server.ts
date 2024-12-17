@@ -41,8 +41,6 @@ export class Server {
   // }
 
   public async handleReq(req: Request): Promise<Response> {
-    console.log("HTTP Request made\n");
-    console.log(req);
     switch (req.method) {
       case "GET": {
         if (
@@ -79,6 +77,7 @@ export class Server {
     }
 
     const _path: string = new URL(req.url).pathname;
+    console.log("REQUEST TO PATH: " + _path);
     const _userCredentials: UserCredentials = await req.json();
     if (
       !(
@@ -276,22 +275,52 @@ export class Server {
 
             case "cl:getAllGames": {
               console.log(`Socket ${_key} - ${_username} requested all games.`);
-              socket.send(JSON.stringify({ event: "sv:allGames", data: null }));
+              const _user: DBUser | null = await this._dbHandler.getUser(
+                _username
+              );
+              if (!_user) {
+                return;
+              }
+              socket.send(
+                JSON.stringify({
+                  event: "sv:allGames",
+                  data: { games: _user.games },
+                })
+              );
               break;
             }
 
             case "cl:getGame": {
-              console.log(`Socket ${_key} - ${_username} requested game data.`);
-              socket.send(JSON.stringify({ event: "sv:game", data: null }));
+              const game: GameInstance | null =
+                await this._state.getGameInstance(data.gameId);
+              if (!game) {
+                return;
+              }
+
+              socket.send(
+                JSON.stringify({
+                  event: "sv:game",
+                  data: {
+                    name: game.name,
+                    finished: game.finished,
+                    roundCount: game.roundCount,
+                    playerCount: game.playerCount,
+                  },
+                })
+              );
               break;
             }
 
             case "cl:createGame": {
               const gameId = crypto.randomUUID();
-              this._state.createGameInvitation(gameId, data.users);
+
+              this._state.createGameInvitation(gameId, data.users, _username);
               this._sockets.values().forEach((_socket) => {
                 if (data.users.includes(_socket.username)) {
-                  if (_socket.socket !== null) {
+                  if (
+                    _socket.socket !== null &&
+                    _socket.username !== _username
+                  ) {
                     _socket.socket.send(
                       JSON.stringify({
                         event: "sv:gameInvitation",
@@ -301,6 +330,14 @@ export class Server {
                   }
                 }
               });
+              socket.send(
+                JSON.stringify({
+                  event: "sv:gameCreated",
+                  data: {
+                    gameId,
+                  },
+                })
+              );
               console.log(
                 `Socket ${_key} - ${_username} requested to create a game.`
               );
@@ -308,16 +345,33 @@ export class Server {
             }
 
             case "cl:acceptGame": {
-              this._state.handleGameInvitation(data.gameId, _username, true);
-              // TODO CHECK IF GAME SHOULD START
+              if (
+                this._state.handleGameInvitation(data.gameId, _username, true)
+              ) {
+                // If game should start
+              }
+
               this._dbHandler.addGame(data.gameId, _username);
 
               break;
             }
 
             case "cl:rejectGame": {
-              this._state.handleGameInvitation(data.gameId, _username, false);
-              // TODO CHECK IF GAME SHOULD START
+              if (
+                this._state.handleGameInvitation(data.gameId, _username, false)
+              ) {
+                // If game should start
+              }
+
+              break;
+            }
+
+            case "cl:gameAction": {
+              this._dbHandler.handleGameAction(
+                data.gameId,
+                _username,
+                data.action
+              );
               break;
             }
 

@@ -68,7 +68,7 @@ function renderSignIn(parent) {
 
 async function signIn(usernameInput, passwordInput) {
   try {
-    const response = await fetch("http://localhost:8888/login/", {
+    const response = await fetch("http://localhost:8888/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -80,20 +80,36 @@ async function signIn(usernameInput, passwordInput) {
     });
     if (response.ok) {
       const data = await response.json();
-      localStorage.setItem("authToken", data.token);
-      localStorage.setItem("id", data.user.id);
-      window.location.href = "../gameList/gameList.html";
+      const key = data.key;
+      localStorage.setItem("authToken", key);
+      let socket = null;
+      try {
+        socket = new WebSocket(`ws://localhost:8888/socket?key=${key}`);
+        socket.addEventListener("open", () => {
+          client.socket = socket;
+          renderGameList("#wrapper");
+        }),
+          socket.addEventListener("error", () => {
+            console.error(err);
+            return;
+          });
+      } catch (err) {
+        console.error(err);
+        return;
+      }
+
       return data;
     } else if (response.status === 401) {
       const error = await response.json();
       alert(`Error: ${error.error}`);
     } else if (response.status === 400) {
       const error = await response.json();
-      alert(`Error: ${error.error}`);
+      // alert(`Error: ${error.error}`);
     } else {
-      alert("Internal server error. Please try again later.");
+      // alert("Internal server error. Please try again later.");
     }
   } catch (error) {
+    console.error(error);
     alert("An error occured. Please check your connection.");
   }
 }

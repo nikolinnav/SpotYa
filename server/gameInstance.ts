@@ -8,16 +8,33 @@ export class GameInstance {
     public readonly rounds: Rounds = new Rounds(players)
   ) {}
 
+  get name(): string {
+    // SHOULDNT RETURN ID, SHOULD RETURN UNIQUE NAME
+    return this.id;
+  }
+
   get finished(): boolean {
     return this.rounds.finished;
   }
 
-  get gameWinner(): Username {
+  get gameWinner(): { username: Username; score: number } {
     return this.rounds.gameWinner;
   }
 
-  get roundWinner(): Username {
+  get roundWinner(): { username: Username; score: number } {
     return this.rounds.roundWinner;
+  }
+
+  get roundScores(): { username: Username; score: number }[] {
+    return this.rounds.roundScores;
+  }
+
+  get roundCount(): string {
+    return this.rounds.roundCount;
+  }
+
+  get playerCount(): number {
+    return this.rounds.playerCount;
   }
 
   public makeGuess(username: Username, coordinates: Coordinates): void {

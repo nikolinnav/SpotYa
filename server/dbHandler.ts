@@ -72,32 +72,6 @@ export class DBHandler {
     // TODO
   }
 
-  public async createGame(game: {
-    id?: GameID;
-    rounds: any;
-    users: string[];
-  }): Promise<boolean> {
-    let _games: DBGame[] = [];
-    if (!game.id) {
-      game.id = crypto.randomUUID();
-    }
-
-    try {
-      _games = await readJSONFile(this._gamesPath);
-    } catch (e) {
-      console.error("Error reading games file:\n", e);
-    }
-
-    for (const _game of _games) {
-      if (_game.id === game.id) {
-        return false;
-      }
-    }
-
-    _games.push(game as DBGame);
-    return true;
-  }
-
   public async getGame(id: GameID): Promise<DBGame | null> {
     let _games: DBGame[] = [];
     try {
@@ -142,7 +116,7 @@ export class DBHandler {
     return true;
   }
 
-  public async addGame(gameId: GameID, username: Username) {
+  public async addGame(gameId: GameID, username: Username): Promise<boolean> {
     let _users: DBUser[] = [];
     try {
       _users = await readJSONFile(this._usersPath);
@@ -160,6 +134,7 @@ export class DBHandler {
     _user.games.push(gameId);
 
     await Deno.writeTextFile(this._usersPath, JSON.stringify(_users));
+    return true;
   }
 
   public async removeGame(gameId: GameID, username: Username) {
@@ -180,5 +155,24 @@ export class DBHandler {
     _user.games.splice(index, 1);
 
     await Deno.writeTextFile(this._usersPath, JSON.stringify(_users));
+  }
+
+  public async handleGameAction(id: GameID, username: Username, action: any) {
+    let _games: DBGame[] = [];
+    try {
+      _games = await readJSONFile(this._gamesPath);
+    } catch (e) {
+      console.error("Error reading games file:", e);
+      return null;
+    }
+
+    for (const _game of _games) {
+      if (_game.id === id) {
+        // Do something
+        return true;
+      }
+    }
+
+    return null;
   }
 }

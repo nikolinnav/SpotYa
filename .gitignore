@@ -1,2 +1,6 @@
 .DS_Store
 .vscode/settings.json
+SpotYa_API.pdf
+SpotYa_Examples.pdf
+server/cert.pem
+server/key.pem
