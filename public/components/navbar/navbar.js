@@ -26,6 +26,10 @@ function renderGameListNav(parent) {
     document.querySelector("#profileIcon").addEventListener("click", function () {
         renderProfile(document.querySelector("#wrapper"));
     });
+
+    document.querySelector("#notificationIcon").addEventListener("click", function () {
+        renderGameRequests(document.querySelector("#wrapper"));
+    })
 }
 
 function renderInGameNav(parent) {
