@@ -61,4 +61,15 @@
     height: 8px;
     background-color: #9d9d9d;
     border-radius: 8px;
+    animation: progressAnimation 16s linear forwards;
+}
+
+@keyframes progressAnimation {
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0%;
+    }
 }

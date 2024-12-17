@@ -22,6 +22,10 @@ function renderGameListNav(parent) {
     </svg>
 
     `
+
+    document.querySelector("#profileIcon").addEventListener("click", function () {
+        renderProfile(document.querySelector("#wrapper"));
+    });
 }
 
 function renderInGameNav(parent) {
@@ -92,17 +96,20 @@ function renderInGameNav(parent) {
         })
     })
 
-    document.querySelector("#rankIconContainer").addEventListener("click", function(){
+    document.querySelector("#rankIconContainer").addEventListener("click", function () {
         renderRanking(document.querySelector("#wrapper"));
     });
 
-    document.querySelector("#picIconContainer").addEventListener("click", function(){
-       // renderRanking(document.querySelector("#wrapper"));
+    document.querySelector("#picIconContainer").addEventListener("click", function () {
+        // renderRanking(document.querySelector("#wrapper"));
     });
 
-    document.querySelector("#mapIconContainer").addEventListener("click", function(){
+    document.querySelector("#mapIconContainer").addEventListener("click", function () {
         renderShowMapAgain(document.querySelector("#wrapper"));
     });
 
+    document.querySelector("#chatIconContainer").addEventListener("click", function () {
+        renderChat(document.querySelector("#wrapper"));
+    })
 
 }   
