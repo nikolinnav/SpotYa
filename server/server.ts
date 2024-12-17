@@ -1,3 +1,4 @@
+import { serveTls } from "https://deno.land/std@0.166.0/http/server.ts";
 import * as bcrypt from "https://deno.land/x/bcrypt/mod.ts";
 import { serveDir } from "jsr:@std/http/file-server";
 import {
@@ -29,6 +30,15 @@ export class Server {
       this.handleReq.bind(this)
     );
   }
+
+  // public start(): void {
+  //   serveTls(this.handleReq.bind(this), {
+  //     port: 8888,
+  //     hostname: "0.0.0.0",
+  //     certFile: "cert.pem",
+  //     keyFile: "key.pem",
+  //   });
+  // }
 
   public async handleReq(req: Request): Promise<Response> {
     console.log("HTTP Request made\n");
