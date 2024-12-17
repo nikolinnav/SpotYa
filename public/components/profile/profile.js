@@ -23,6 +23,8 @@ function renderProfile(parent) {
     renderAvatar(grid, 'Linus', '')
     renderAvatar(grid, 'Ulla', '')
     renderAvatar(grid, 'Greta', '')
+
+    addFriendsButton(grid) 
 }
 
 function renderProfileFriends(parent) {
@@ -75,6 +77,32 @@ function renderAvatar(parent, nickname, imgSrc) {
     parent.appendChild(container)
 }
 
+
+function addFriendsButton(parent) {
+    const container = document.createElement('div')
+    container.className = `addFriendsButton`
+    const div = document.createElement('div')
+    
+
+    const plus = document.createElement('a')
+    plus.innerHTML = `<svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8.14286 11.3571H0V8.64286H8.14286V0.5H10.8571V8.64286H19V11.3571H10.8571V19.5H8.14286V11.3571Z" fill="white"/>
+        </svg>
+        `
+    plus.addEventListener('click', (ev) => {
+        ev.preventDefault()
+        ev.stopPropagation()
+        console.log(`Till vy för searchFriends`)
+        // Ska ta anvöndaren till vy för searchFriends
+    })
+
+    parent.appendChild(container)
+    container.appendChild(div)
+    div.appendChild(plus)
+}
+
+
+
 function renderProfileInfo (parent, nickname, name, score,  imgSrc) {
     console.log('jaaaaaa')
 
@@ -111,8 +139,8 @@ function renderProfileInfo (parent, nickname, name, score,  imgSrc) {
     a.addEventListener('click', (ev) => {
         ev.preventDefault()
         ev.stopPropagation()
-        console.log(`ta bort ${nickname}`)
-        // implement delete friend here
+        console.log(`edit profile`)
+        // till ny vy, inställnigar för att redigera profil
     })
 
     container.appendChild(a)
