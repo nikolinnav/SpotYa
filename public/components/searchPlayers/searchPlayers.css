@@ -2,11 +2,8 @@ body {
     box-sizing: border-box;
 }
 #searchPlayers {
-    background-color: #242424;
     display: flex;
     flex-direction: row;
-    height: 40px;
-    border-radius: 26px;
     align-items: center;
     position: relative;
     width: 100%;
@@ -14,7 +11,7 @@ body {
 
 .searchIcon {
     position: absolute;
-    left: 8px;
+    left: 22px;
     z-index: 1;
 }
 
@@ -22,14 +19,20 @@ body {
     border: none;
     outline: none;
     padding-left: 43px;
-    background-color: #3a2b2b;
+    background-color: #242424;
     width: 100%;
-    height: 38px;
+    height: 40px;
     border-radius: 26px;
+    color: rgb(246, 246, 246);
+    font-family: "Rethink Sans Regular";
+    font-size: 14px;
+    margin-left: 10px;
+    margin-right: 10px;
+    
 }
 
 .resetInputField {
-    background-color: aqua;
+    background-color: #747474;
     width: 23px;
     height: 23px;
     border-radius: 50%;
@@ -37,6 +40,6 @@ body {
     padding-top: 2px;
     box-sizing: border-box;
     position: absolute;
-    right: 8px; /* Placera reset-knappen längst till höger */
+    right: 18px; /* Placera reset-knappen längst till höger */
 }
 
