@@ -1,0 +1,74 @@
+#chatContainer {
+    width: 95%;
+}
+
+.chatContainerFriends {
+    display: flex;
+    width: 95%;
+    margin: auto;
+    gap: 10px;
+    align-items: flex-end;
+    margin-top: 40px;
+}
+
+.profilePhotoContainer {
+    height: 29px;
+    width: 29px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.chatBubbleContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.chatBubbleFriends {
+    max-width: 224px;
+    padding: 12px 17px;
+    background-color: #242424;
+    border-radius: 27px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.textFriends {
+    font-size: 12px;
+    margin: 0;
+    color: white;
+    font-family: "Rethink Sans Regular";
+}
+
+.sentBy {
+    font-size: 12px;
+    color: #909090;
+    font-family: "Rethink Sans Regular";
+    margin: 0;
+}
+
+.chatContainerMe {
+    display: flex;
+    margin-top: 40px;
+    justify-content: flex-end;
+}
+
+.chatBubbleMe {
+    max-width: 224px;
+    padding: 12px 17px;
+    border-radius: 27px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--icons);
+}
+
+
+
+.textMe {
+    color: black;
+    font-size: 12px;
+    margin: 0;
+    font-family: "Rethink Sans Regular";
+}
