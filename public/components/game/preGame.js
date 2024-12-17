@@ -10,4 +10,10 @@ function renderPreGame(parent) {
     <p id="first">It's time to<br> SpotYa friends!</p>
     <p id="second">Are you ready?</p>
     <button id="letsGoButton">Let's go!</button>`;
+
+  document
+    .querySelector("#letsGoButton")
+    .addEventListener("click", function () {
+      renderPreviewPhoto(document.querySelector("#wrapper"));
+    });
 }

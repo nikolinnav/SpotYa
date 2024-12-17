@@ -92,4 +92,17 @@ function renderInGameNav(parent) {
         })
     })
 
+    document.querySelector("#rankIconContainer").addEventListener("click", function(){
+        renderRanking(document.querySelector("#wrapper"));
+    });
+
+    document.querySelector("#picIconContainer").addEventListener("click", function(){
+       // renderRanking(document.querySelector("#wrapper"));
+    });
+
+    document.querySelector("#mapIconContainer").addEventListener("click", function(){
+        renderShowMapAgain(document.querySelector("#wrapper"));
+    });
+
+
 }   
