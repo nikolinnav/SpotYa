@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="components/profile/profile.css">
     <link rel="stylesheet" href="components/header/header.css">
 
-    <title>Document</title>
+    <title>Profile</title>
 </head>
 
 <body>
@@ -16,40 +16,25 @@
     <header id="header"></header>
 
     <main id="profile">
-
         <section id="pf-info"></section>
         <section id="pf-friends"></section>
-
-
-        <section id="pf-friendrequests">
-            <div class="pf-title">Friend requests</div>
-            <div>
-                <div>
-                    "icon"
-                    userName
-                </div>
-                <div>
-                    "remove"
-                </div>
-                <div>
-                    "approve"
-                </div>
-            </div>
-        </section>
-        
+        <section id="pf-friendrequests"></section>
     </main>
 
     <script src="components/header/header.js"></script>
     <script src="components/profile/profile.js"></script>
     <script>
         renderHeader(document.querySelector("#header"));
-        // renderProfile(document.querySelector("#profile"))
+        renderProfileInfo(document.querySelector('#pf-info'), 'Rudolf','Rudolf rödmule', '1008p', '')
+
         const grid = renderProfileFriends(document.querySelector('#pf-friends'))
         renderAvatar(grid, 'Lisa', '')
         renderAvatar(grid, 'Kalle', '')
         renderAvatar(grid, 'Linus', '')
         renderAvatar(grid, 'Ulla', '')
         renderAvatar(grid, 'Greta', '')
+
+
     </script>
 </body>
 
