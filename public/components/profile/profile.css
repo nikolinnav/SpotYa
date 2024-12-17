@@ -1,0 +1,247 @@
+body {
+    background-color: black;
+    color: white;
+    
+}
+
+/* #profile {
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
+} */
+
+
+#pf-info {
+    
+}
+
+#pf-friends {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#pf-friendrequests {
+    
+}
+
+.pf-title {
+    font-family: "Rethink Sans Regular" ; 
+    /* ska ändra till semibold  */
+    margin-bottom: 20px;
+}
+
+/* generic avatar grid-layout */
+
+.avatar-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.avatar {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    position: relative;
+    padding-top: 10px;
+}
+
+.avatar > div {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: #505050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar > div > img {
+    
+}
+
+.avatar > p {
+    font-family: "Rethink Sans Regular";
+    font-size: 12px;
+}
+
+.avatar > a {
+    position: absolute;
+    top: -5px;
+    right: 5px;
+    line-height: 10px;
+    padding: 5px;
+}
+
+a.avatar {
+   text-decoration: none; 
+}
+
+
+#pf-info {
+    height: 350px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#pf-info > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#pf-info > div > div {
+    height: 137px;
+    width: 137px;
+    border-radius: 50%;
+    background-color: #505050;
+    margin: 20px;
+    
+}
+
+#pf-info > p {
+    font-family: "Rethink Sans Regular";
+     /* ska ändra till semibold  */
+    margin: 0;
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+#pf-info p:nth-of-type(2) {
+    font-family: "Rethink Sans Regular";
+    margin: 0;
+    font-size: 14px;
+}
+
+#pf-info #pillId p {
+    font-family: "Rethink Sans Regular";
+    /* ska ändra till semibold  */
+    margin: 0;
+    font-size: 14px;
+}
+
+#pf-info #pillId {
+    background-color: var(--purple);
+    height: 22px;
+    width: 56px;
+    border-radius: 11px;
+    font-family: "Rethink Sans Regular";
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#pf-info a {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.addFriendsButton {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+
+.addFriendsButton > div {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.addFriendsButton a {
+    height: 19px;
+    padding: 20px;
+}
+
+.viewMoreButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-family: "Rethink Sans Regular";
+    font-size: 12px;
+    width: 72px;
+    height: 20px;
+    text-align: right;
+}
+
+.containerViewMore {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#pf-friendrequests {
+    /* margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 60px; */
+    margin: 60px 10px auto 10px;
+}
+
+.requestAvatarContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: "Rethink Sans Regular";
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.requestAvatarContainer > div {
+    display: flex;
+    flex-direction: row;
+}
+
+.requestAvatarContainer > div:nth-of-type(1) > div {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #505050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.answerContainer {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.remove {
+    background-color: #242424;
+    height: 25px;
+    width: 63px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.approve {
+    background-color: #7D04F5;
+    height: 25px;
+    width: 63px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin-left: 10px;
+
+}
