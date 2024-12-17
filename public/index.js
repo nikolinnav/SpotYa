@@ -15,3 +15,5 @@
 //renderHeader(document.querySelector("#header"))
 //renderProfile(document.querySelector("#wrapper"))
 // renderSearchPlayers(document.querySelector("#wrapper"))
+renderHeader(document.querySelector("#header"))
+renderProfile(document.querySelector("#wrapper"))
