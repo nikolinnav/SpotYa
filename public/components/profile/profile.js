@@ -164,7 +164,7 @@ function addFriendsButton(parent) {
         ev.preventDefault()
         ev.stopPropagation()
         console.log(`Till vy för searchFriends`)
-        // Ska ta anvöndaren till vy för searchFriends
+        renderSearchPlayers(document.querySelector("#wrapper"))
     })
 
     parent.appendChild(container)
