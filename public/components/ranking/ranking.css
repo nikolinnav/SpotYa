@@ -41,7 +41,7 @@
     align-items: center;
 }
 
-.profilePhoto {
+.profilePhotoRank {
     margin-left: 25px;
     margin-right: 16px;
     height: 28px;
@@ -62,5 +62,6 @@
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    margin-right: 5px;
+    margin-left: 5px;
+
 }

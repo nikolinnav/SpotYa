@@ -19,10 +19,10 @@ function renderRanking(parent) {
     <div id="rankListContainer">
         <div class="listElement">
             <div class="listLeft">
-                <div class="upOrDown"></div>
                 <p class="place">1</p>
-                <div class="profilePhoto"></div>
+                <div class="profilePhotoRank"></div>
                 <p class="listName">Name</p>
+                <div class="upOrDown"></div>
             </div>
             <div class="listRight">
                 <p class="roundPoints">15</p>

@@ -12,8 +12,8 @@
 //renderRanking(document.querySelector("#wrapper"));
 //renderFinishedRanking(document.querySelector("#wrapper"));
 //renderChat(document.querySelector("#wrapper"));
-// renderInGameNav(document.querySelector("#wrapper"));
+renderInGameNav(document.querySelector("#wrapper"));
 //renderHeader(document.querySelector("#header"))
 //renderProfile(document.querySelector("#wrapper"))
 // renderSearchPlayers(document.querySelector("#wrapper"))
-renderGameRequests(document.querySelector("#wrapper"));
+//renderGameRequests(document.querySelector("#wrapper"));

@@ -73,3 +73,12 @@
     position: relative;
     z-index: 2;
 }
+
+
+.active {
+    background-color: white;
+}
+
+.iconActive {
+    color: purple;
+}

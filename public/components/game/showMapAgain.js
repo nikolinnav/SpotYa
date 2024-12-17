@@ -10,6 +10,7 @@ function renderShowMapAgain(parent) {
     <div id="userContainer">
          <div id="profilePhoto"></div>
         <p id="userName">Name</p>
+    </div>
     <div id="map"></div>
    
        
