@@ -16,13 +16,13 @@ function renderProfile(parent) {
 
   const grid = renderProfileFriends(document.querySelector("#pf-friends"));
 
-  // TODO: Fetch users friends (hur med sockets???)
-  // const response = await fetch('localhost:8888/')
-  // if (!response.ok) {
-  //     // Något blev fel
-  //     return
-  // }
-  // const users = response.json()
+  // TODO: Fetch users friends
+  // TODO: Skapa loop med resultatet från fetch!
+  renderAvatar(grid, "Lisa", "");
+  renderAvatar(grid, "Kalle", "");
+  renderAvatar(grid, "Linus", "");
+  renderAvatar(grid, "Ulla", "");
+  renderAvatar(grid, "Greta", "");
 
   // TODO: Skapa loop med resultatet från fetch/sockets!
   renderAvatar(grid, "Lisa", "");
@@ -108,20 +108,10 @@ function renderProfileFriends(parent) {
        <path d="M3 4H0V3H3V0H4V3H7V4H4V7H3V4Z" fill="white"/>
       </svg>`;
 
-  viewMore.appendChild(text);
-  containerViewMore.appendChild(viewMore);
-  parent.appendChild(containerViewMore);
-
   return grid;
-
-  // parent.innerHTML = `
-  //     <div class="pf-title">Friends</div>
-  //     <div class="avatar-grid">
-  //     </div>
-  // `
 }
 
-function renderAvatar(parent, nickname, imgSrc) {
+function renderAvatar(parent, name, imgSrc) {
   const container = document.createElement("div");
   container.className = "avatar";
 
@@ -131,7 +121,7 @@ function renderAvatar(parent, nickname, imgSrc) {
   div.appendChild(img);
 
   const p = document.createElement("p");
-  p.appendChild(document.createTextNode(nickname));
+  p.appendChild(document.createTextNode(name));
 
   const a = document.createElement("a");
   a.innerHTML = `<svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -141,7 +131,7 @@ function renderAvatar(parent, nickname, imgSrc) {
   a.addEventListener("click", (ev) => {
     ev.preventDefault();
     ev.stopPropagation();
-    console.log(`ta bort ${nickname}`);
+    console.log(`ta bort ${name}`);
     // implement delete friend here
   });
 
@@ -166,7 +156,7 @@ function addFriendsButton(parent) {
     ev.preventDefault();
     ev.stopPropagation();
     console.log(`Till vy för searchFriends`);
-    // Ska ta anvöndaren till vy för searchFriends
+    renderSearchPlayers(document.querySelector("#wrapper"));
   });
 
   parent.appendChild(container);
@@ -181,7 +171,7 @@ function renderFriendRequests(parent) {
   parent.appendChild(title);
 }
 
-function renderRequestsAvatars(parent, nickname, imgSrc) {
+function renderRequestsAvatars(parent, name, imgSrc) {
   const containerBig = document.createElement("div");
   containerBig.className = "requestAvatarContainer";
 
@@ -193,7 +183,7 @@ function renderRequestsAvatars(parent, nickname, imgSrc) {
   div.appendChild(img);
 
   const p = document.createElement("p");
-  p.appendChild(document.createTextNode(nickname));
+  p.appendChild(document.createTextNode(name));
 
   const containerR = document.createElement("div");
   containerR.className = "answerContainer";

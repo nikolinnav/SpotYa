@@ -1,17 +1,15 @@
-function renderSearchPlayers(parent) {
-    parent.innerHTML = `
-    <section id="searchPlayers">
+function renderSearchFriends(parent) {
+    parent.innerHTML = `<section id="searchPlayers">
     </section>
     <section id="showPlayersList">
-    </section>
-    `
+    </section>`
 
-    searchFieldPlayers(document.querySelector('#searchPlayers'))
-    renderAllAvatars(document.querySelector('#showPlayersList'), 'name', '') 
+    searchFieldFriends(document.querySelector('#searchPlayers'))
+    renderFriendAvatars(document.querySelector('#showPlayersList'), 'name', '') 
+
 }
 
-
-function searchFieldPlayers(parent) {
+function searchFieldFriends(parent) {
 
     const searchIcon = document.createElement('div')
     searchIcon.innerHTML = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -21,7 +19,7 @@ function searchFieldPlayers(parent) {
 
     const inputEl = document.createElement('input')
     inputEl.id = 'searchField'
-    inputEl.placeholder = 'Search for other players';
+    inputEl.placeholder = 'Search for friends';
 
     inputEl.addEventListener('keydown', (event) => {
     console.log(event.target.value)
@@ -58,8 +56,7 @@ function searchFieldPlayers(parent) {
 }
 
 
-
-function renderAllAvatars(parent, name, imgSrc) {
+function renderFriendAvatars(parent, name, imgSrc) {
     const containerBig = document.createElement('div')
     containerBig.className = 'AllAvatarContainer'
 
@@ -83,17 +80,10 @@ function renderAllAvatars(parent, name, imgSrc) {
     add.className = 'add'
 
     add.addEventListener('click', (ev) => {
-        if (add.textContent === 'Add') {
-            add.textContent = 'Cancel request'; 
-            add.className = 'CancelRequest'; 
-            console.log('sent friend request')
+        console.log('add player to game')
+            
             //Add friend -> send friendrequest :)
-        } else {
-            add.textContent = 'Add'; 
-            add.className = 'add'; 
-            console.log('friend request cancelled')
-            // remove friendrequest :)
-        }
+        
     })
 
     containerL.appendChild(div)
@@ -104,5 +94,3 @@ function renderAllAvatars(parent, name, imgSrc) {
     containerR.appendChild(add)
     containerBig.appendChild(containerR)
 }
-
-

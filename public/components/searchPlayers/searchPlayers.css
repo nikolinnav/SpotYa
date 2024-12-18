@@ -1,0 +1,107 @@
+body {
+    box-sizing: border-box;
+}
+#searchPlayers {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 22px;
+    z-index: 1;
+}
+
+#searchField {
+    border: none;
+    outline: none;
+    padding-left: 43px;
+    background-color: #242424;
+    width: 100%;
+    height: 40px;
+    border-radius: 26px;
+    color: rgb(246, 246, 246);
+    font-family: "Rethink Sans Regular";
+    font-size: 14px;
+    margin-left: 10px;
+    margin-right: 10px;
+    
+}
+
+.resetInputField {
+    background-color: #747474;
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 2px;
+    box-sizing: border-box;
+    position: absolute;
+    right: 18px; /* Placera reset-knappen längst till höger */
+}
+
+#showPlayersList {
+    margin-top: 30px;
+}
+
+.AllAvatarContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: "Rethink Sans Regular";
+    font-size: 12px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+
+.AllAvatarContainer > div {
+    display: flex;
+    flex-direction: row;
+}
+
+.AllAvatarContainer > div:nth-of-type(1) > div {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #505050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.answerContainer {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.add {
+    background-color: #7D04F5;
+    height: 25px;
+    width: 51px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.CancelRequest {
+    background-color: #505050;
+    height: 25px;
+    width: 101px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+

@@ -1,0 +1,79 @@
+body {
+    box-sizing: border-box;
+}
+
+
+#createGameTitleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 70px;
+}
+
+#createGamePLayersContainer {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#newGameTitle {
+    font-family: "Rethink Sans Regular";
+    font-size: 32px;
+    width: 280px;
+    text-align: center;
+}
+
+#gameNameTitle {
+    font-family: "Rethink Sans Regular";
+    font-size: 20px;
+}
+
+#addGameName {
+    width: 98.5%;
+    outline: none;
+    height: 40px;
+    border: 1px solid #A6A6A6;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+#gameNameContainer {
+    margin-top: 58px;
+    margin-bottom: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.playersTitle {
+    font-family: "Rethink Sans Regular" ; 
+    /* ska ändra till semibold  */
+    margin-bottom: 20px;
+}
+
+/* generic avatar grid-layout */
+
+.avatar-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.playersTitle {
+    font-size: 20px;
+}
+
+#sendInviteBtn {
+    height: 40px;
+    width: 143px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color: var(--purple);
+    color: white;
+    margin: auto;
+    font-family: "Rethink Sans Regular" ;
+    font-size: 16px;
+}
+
+#createGameButtonContainer {
+    margin-top: 90px;
+}
