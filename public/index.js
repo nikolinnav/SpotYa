@@ -6,4 +6,5 @@
 //renderGameListNav(document.querySelector("#wrapper"));
 // renderInGameNav(document.querySelector("#wrapper"));
 renderHeader(document.querySelector("#header"))
-renderProfile(document.querySelector("#wrapper"))
+// renderProfile(document.querySelector("#wrapper"))
+renderCreateGame(document.querySelector('#wrapper'))

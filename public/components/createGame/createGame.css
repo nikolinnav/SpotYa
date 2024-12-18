@@ -1,0 +1,17 @@
+body {
+    box-sizing: border-box;
+}
+
+#createGameTitleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 70px;
+}
+
+#newGameTitle {
+    font-family: "Rethink Sans Regular";
+    font-size: 32px;
+    width: 280px;
+    text-align: center;
+}
