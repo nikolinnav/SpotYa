@@ -116,7 +116,7 @@ function addplayersButton(parent) {
         ev.preventDefault()
         ev.stopPropagation()
         console.log(`Till vy för addPlayers`)
-        // renderSearchPlayers(document.querySelector("#wrapper"))
+        renderSearchFriends(document.querySelector("#wrapper"))
     })
 
     parent.appendChild(container)
